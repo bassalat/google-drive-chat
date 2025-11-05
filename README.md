@@ -78,33 +78,44 @@ gdrive_talk/
 
 ## Setup
 
+### Quick Links
+
+- **New User?** Follow the complete [**SETUP.md**](SETUP.md) guide for step-by-step instructions
+- **Already configured?** Use the [**QUICKSTART.md**](QUICKSTART.md) for quick reference
+
 ### Prerequisites
 
-- Python 3.10+ (using venv_analysis environment)
+- Python 3.10+
 - Node.js 18+ and npm
-- Google Drive API credentials
-- Anthropic API key
+- Google Drive API credentials ([how to get them](SETUP.md#step-2-set-up-google-cloud-project))
+- Anthropic API key ([how to get it](SETUP.md#step-1-get-anthropic-api-key))
 
-### 1. Python Backend Setup
-
-```bash
-# Install Python dependencies
-/Users/bassalat/opt/miniconda3/envs/venv_analysis/bin/pip install -r requirements.txt
-
-# Set up environment variables
-export ANTHROPIC_API_KEY="your-api-key-here"
-```
-
-### 2. Google Drive Setup
-
-The Google Drive integration is already configured via `/drive-setup`. Your credentials are in `.drive-data/`.
-
-### 3. Frontend Setup
+### Quick Setup
 
 ```bash
-cd frontend
-npm install
+# 1. Clone the repository
+git clone https://github.com/bassalat/google-drive-chat.git
+cd google-drive-chat
+
+# 2. Install Python dependencies
+pip install -r requirements.txt
+
+# 3. Install frontend dependencies
+cd frontend && npm install && cd ..
+
+# 4. Configure environment
+cp .env.example .env
+# Edit .env and add your ANTHROPIC_API_KEY
+
+# 5. Add credentials.json (see SETUP.md for details)
+# Download from Google Cloud Console and place in project root
+
+# 6. Run the app
+./start_backend.sh   # Terminal 1
+./start_frontend.sh  # Terminal 2
 ```
+
+For detailed instructions, see [**SETUP.md**](SETUP.md).
 
 ## Running the Application
 

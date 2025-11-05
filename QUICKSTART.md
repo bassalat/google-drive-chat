@@ -2,6 +2,9 @@
 
 Get your Google Drive Chat app running in 5 minutes!
 
+> **First time setting up?** Follow the detailed [**SETUP.md**](SETUP.md) guide instead.
+> This quick start assumes you already have credentials and dependencies installed.
+
 ## Step 1: Set Your API Key
 
 ```bash
