@@ -67,7 +67,7 @@ class DriveAgent:
             mcp_servers={
                 "google-drive": McpSdkServerConfig(
                     name="google-drive",
-                    command="/Users/bassalat/opt/miniconda3/envs/venv_analysis/bin/python",
+                    command=os.getenv("PYTHON_PATH", sys.executable),
                     args=[str(self.mcp_server_path)],
                     env={}
                 )
