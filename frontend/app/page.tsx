@@ -31,6 +31,7 @@ export default function Home() {
 
     websocket.onopen = () => {
       console.log('WebSocket connected')
+      setWs(websocket)
     }
 
     websocket.onmessage = (event) => {
@@ -76,9 +77,8 @@ export default function Home() {
 
     websocket.onclose = () => {
       console.log('WebSocket disconnected')
+      setWs(null)
     }
-
-    setWs(websocket)
 
     return () => {
       websocket.close()
