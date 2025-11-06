@@ -4,20 +4,15 @@
 echo "🚀 Starting Google Drive Chat Backend..."
 echo "======================================"
 
-# Load .env file if it exists
-if [ -f .env ]; then
-    echo "📝 Loading environment from .env file..."
-    export $(cat .env | grep -v '^#' | grep -v '^$' | xargs)
-fi
-
-# Check if ANTHROPIC_API_KEY is set
-if [ -z "$ANTHROPIC_API_KEY" ]; then
-    echo "❌ Error: ANTHROPIC_API_KEY environment variable not set"
-    echo "Please add it to .env file or export it manually"
+# Check if .env file exists
+if [ ! -f .env ]; then
+    echo "❌ Error: .env file not found"
+    echo "Please create a .env file with ANTHROPIC_API_KEY and other required variables"
+    echo "See .env.example for reference"
     exit 1
 fi
 
-echo "✓ ANTHROPIC_API_KEY is set (${ANTHROPIC_API_KEY:0:20}...)"
+echo "✓ Found .env file (environment variables will be loaded by Python)"
 echo ""
 
 # Start the backend

@@ -10,10 +10,14 @@ from pathlib import Path
 from typing import Optional, AsyncGenerator
 import json
 
+from dotenv import load_dotenv
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import asyncio
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
